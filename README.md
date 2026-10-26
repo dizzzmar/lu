@@ -1,9 +1,8 @@
 # Lucía Clavijo — portfolio
 
-A light cinematic portfolio inspired by Siena.film. React + Vite. All project names and landscapes are demonstration placeholders.
+A dark cinematic portfolio following Siena.film's style. React + Vite, Lenis smooth scrolling, an authored WebGL film surface and accessible animated overlays. All films and images remain explicit placeholders.
 
 ## Run
-
 Requires Node.js 24 and npm.
 
 ```sh
@@ -11,12 +10,12 @@ npm ci --cache /tmp/npm-cache
 npm run dev
 ```
 
-Build with `npm run build`; inspect the production build with `npm run preview`.
+Build: `npm run build`. Production preview: `npm run preview`.
 
 ## GitHub Pages
+The workflow in `.github/workflows/deploy.yml` deploys the built `dist/` directory on pushes to `main`. Repository Settings → Pages should use **GitHub Actions** as its source, rather than publishing the source directory. Relative assets support the repository subpath.
 
-The workflow in `.github/workflows/deploy.yml` builds and deploys on pushes to `main`, or manually. In repository Settings → Pages, select **GitHub Actions** as the source. Relative build assets support hosting under this repository's Pages subpath. No deployment has been triggered by this work.
+## Content and motion
+Film placeholders and biography: `src/main.jsx`. Visual system: `src/style.css`. WebGL renderer: `src/FilmCanvas.js`. The normal DOM gallery is the fallback for reduced motion or unavailable WebGL. Touch scrolling remains native. The entrance is remembered per browser tab session; open a new tab or clear that tab's session storage to see it again.
 
-## Content
-
-Edit the placeholder array and biography in `src/main.jsx`; visual tokens and responsive styles are in `src/style.css`. Final project media, logo, email and credits are pending. See `docs/research/siena/README.md` for reference mapping, assets, checks and known differences.
+Final film media, logo, email and credits are pending. Source mapping, temporary asset origins and validation notes live in `docs/research/siena/README.md`.
