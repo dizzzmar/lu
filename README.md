@@ -18,4 +18,4 @@ The workflow in `.github/workflows/deploy.yml` deploys the built `dist/` directo
 ## Content and motion
 Film placeholders and biography: `src/main.jsx`. Visual system: `src/style.css`. WebGL renderer: `src/FilmCanvas.js`. The normal DOM gallery is the fallback for reduced motion or unavailable WebGL. Touch scrolling remains native. The entrance is remembered per browser tab session; open a new tab or clear that tab's session storage to see it again.
 
-Final film media, logo, email and credits are pending. Source mapping, temporary asset origins and validation notes live in `docs/research/siena/README.md`.
+The client logos and icons are in `public/brand/`; the original supplied PNGs are retained there. Final film media, email and credits are pending. Source mapping, temporary asset origins and validation notes live in `docs/research/siena/README.md`.

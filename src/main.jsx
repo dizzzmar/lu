@@ -53,13 +53,16 @@ function Arrow({ down = false }) {
 }
 function Wordmark({ large = false }) {
   return (
-    <span className={"wordmark" + (large ? " large" : "")}>
-      <span className="wordmark-line">
-        <span>LUCÍA</span>
+    <span className={"wordmark brandmark" + (large ? " large" : "")}>
+      <span className="brand-art" aria-hidden="true">
+        <img
+          src={`${base}brand/scissors-white.png`}
+          width="1024"
+          height="508"
+          alt=""
+        />
       </span>
-      <span className="wordmark-line">
-        <span>CLAVIJO</span>
-      </span>
+      <span className="brand-name">LUCÍA CLAVIJO</span>
       <small>FILMMAKER & VIDEO EDITOR</small>
     </span>
   );
@@ -503,7 +506,16 @@ function App() {
         ))}
         <footer ref={footer} className="closing">
           <div className="footer-top">
-            <span>FOR PROJECTS & COLLABORATIONS</span>
+            <span className="footer-signature">
+              <img
+                src={`${base}brand/star-white.png`}
+                width="512"
+                height="479"
+                alt=""
+                aria-hidden="true"
+              />
+              FOR PROJECTS & COLLABORATIONS
+            </span>
             <button
               className="footer-contact"
               onClick={() => setPanel("contact")}

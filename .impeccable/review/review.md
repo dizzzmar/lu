@@ -8,7 +8,7 @@ Product record retained and latest visual instruction recorded. DESIGN.md and si
 ## fidelity
 | Element | Assessment | Evidence |
 | --- | --- | --- |
-| TYPE | adaptation | Uppercase geometric display and compact condensed identity; locally licensed fonts replace Siena's custom lettering. Client logo still pending. |
+| TYPE | adaptation | Uppercase geometric display and compact condensed identity; locally licensed fonts replace Siena's custom lettering. Client-supplied scissors-and-star logo now installed; PNG originals retained. |
 | MATERIAL | match at placeholder scope | Full photographic film surfaces, rounded cropping and genuine scroll-driven vertex deformation. Stock stills remain explicit placeholders. |
 | GROUND | match | Near-black field and cream ticket/navigation surfaces follow the reference. |
 | Navigation | match | Fixed upper-right ticket selector, film index, left rail and Explore action. |
@@ -24,3 +24,5 @@ None outstanding within the requested placeholder scope after the bounded fixes:
 
 ## keep
 Preserve the dark cinema field, simple provisional naming, kinetic film surfaces and absence of promotional filler.
+
+Branding follow-up: desktop and portrait screenshots inspected with the supplied artwork in the header, entrance and reversed menu. No header collision or horizontal overflow. Favicon, touch-icon and manifest requests passed. Artwork was cropped and resampled, not redrawn.
