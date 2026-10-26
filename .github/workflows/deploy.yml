@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 concurrency:
@@ -25,6 +26,22 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+      - name: Wait for legacy Pages publisher
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Pages is currently also configured to publish the source branch.
+          # Let that run finish before deploying the compiled Vite artifact.
+          for attempt in $(seq 1 36); do
+            complete=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$GITHUB_SHA&per_page=100" --jq '[.workflow_runs[] | select(.event == "dynamic" and (.name | ascii_downcase | contains("pages"))) | .status] | all(. == "completed")')
+            if [ "$complete" = "true" ]; then
+              exit 0
+            fi
+            echo "Waiting for branch-based Pages publishing to finish."
+            sleep 5
+          done
+          echo "Branch-based Pages publishing did not finish in time."
+          exit 1
   deploy:
     environment:
       name: github-pages

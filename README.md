@@ -13,7 +13,7 @@ npm run dev
 Build: `npm run build`. Production preview: `npm run preview`.
 
 ## GitHub Pages
-The workflow in `.github/workflows/deploy.yml` deploys the built `dist/` directory on pushes to `main`. Repository Settings → Pages should use **GitHub Actions** as its source, rather than publishing the source directory. Relative assets support the repository subpath.
+The workflow in `.github/workflows/deploy.yml` deploys the built `dist/` directory on pushes to `main`. Repository Settings → Pages should use **GitHub Actions** as its source, rather than publishing the source directory. Relative assets support the repository subpath. While legacy branch publishing is also enabled, the workflow waits for it to finish before publishing the compiled app, preventing the source files from replacing the site.
 
 ## Content and motion
 Film placeholders and biography: `src/main.jsx`. Visual system: `src/style.css`. WebGL renderer: `src/FilmCanvas.js`. The normal DOM gallery is the fallback for reduced motion or unavailable WebGL. Touch scrolling remains native. The entrance is remembered per browser tab session; open a new tab or clear that tab's session storage to see it again.
