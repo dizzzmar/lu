@@ -575,3 +575,23 @@
     transform: none !important;
   }
 }
+/* Navigation stays legible as the light portrait passes behind it. */
+.about-overlay .panel-top .wordmark.brandmark {
+  background: #020202e8;
+  border-radius: 2px;
+  padding: 5px 8px;
+  width: 90px;
+  top: 12px;
+}
+.about-overlay .panel-top .close-button {
+  background: #020202e8;
+  color: #f0f2f1;
+  border-radius: 2px;
+  padding: 7px 10px;
+}
+@media (max-width: 600px) {
+  .about-overlay .panel-top .wordmark.brandmark {
+    width: 70px;
+    top: 12px;
+  }
+}

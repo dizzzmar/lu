@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
+import InkMark from "./InkMark";
 import "./about.css";
 const base = import.meta.env.BASE_URL;
 const clients = ["Verizon", "Google", "Lexus", "Iberdrola", "Unilever"];
@@ -100,10 +101,21 @@ export default function AboutPage({ reduced, currentImage, onContact }) {
       <div className="about-main">
         <p className="about-introduction">
           {introduction.split(" ").map((word, i) => (
-            <span className="about-word" key={i}>
-              <span style={{ "--word-delay": `${Math.min(i * 12, 420)}ms` }}>
+            <span
+              className={
+                "about-word" + (word === "filmmaker" ? " ink-annotated" : "")
+              }
+              key={i}
+            >
+              <span
+                className={word === "filmmaker" ? "about-ink-text" : undefined}
+                style={{ "--word-delay": `${Math.min(i * 12, 420)}ms` }}
+              >
                 {word}
-              </span>{" "}
+              </span>
+              {word === "filmmaker" && (
+                <InkMark className="ink-about-underline" delay={850} />
+              )}{" "}
             </span>
           ))}
         </p>
@@ -153,6 +165,7 @@ export default function AboutPage({ reduced, currentImage, onContact }) {
             height="508"
             alt="Lucía Clavijo’s scissors-and-star logo"
           />
+          <InkMark variant="edge" trigger="reveal" className="ink-portrait" />
           <figcaption>
             <span>LUCÍA CLAVIJO</span>
             <span>PORTRAIT TO BE ADDED</span>
@@ -192,9 +205,24 @@ export default function AboutPage({ reduced, currentImage, onContact }) {
           />
           <span>Lucía Clavijo</span>
         </div>
-        <button className="about-hello" onClick={onContact} data-about-reveal>
-          Say hello
-          <UpRight />
+        <button
+          className="about-hello ink-action"
+          onClick={onContact}
+          data-about-reveal
+        >
+          <span className="ink-label">
+            Say hello
+            <InkMark
+              variant="orbit"
+              trigger="hover"
+              className="ink-contact-loop"
+            />
+          </span>
+          <InkMark
+            variant="arrow"
+            trigger="reveal"
+            className="ink-contact-arrow"
+          />
         </button>
         <div className="about-page-bottom">
           <button onClick={toTop}>

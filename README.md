@@ -22,3 +22,6 @@ The client logos and icons are in `public/brand/`; the original supplied PNGs ar
 
 ## About
 Open `/#about` to link directly to the About page. It follows the user-selected Directed by Wes reference, with content in `src/AboutPage.jsx` and scoped styles in `src/about.css`. The portrait area currently contains a labeled brand placeholder, pending Lucía's photo. Reference measurements and checks are recorded in `docs/research/directedbywes/README.md`.
+
+## Organic strokes
+`src/InkMark.jsx` and `src/ink.css` define the authored line gestures used in the entrance, film selection, About and Contact. Colors inherit the existing theme. Touch and reduced-motion states remain usable without hover or drawing animations. Details and comparison captures are in `docs/design/organic-ink/`.

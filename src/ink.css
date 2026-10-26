@@ -1,0 +1,215 @@
+.ink-mark {
+  display: block;
+  pointer-events: none;
+  overflow: visible;
+  color: inherit;
+  flex-shrink: 0;
+}
+.ink-mark .ink-mask-path {
+  stroke-dashoffset: 0;
+}
+.ink-once .ink-mask-path {
+  animation: ink-write 1000ms var(--ease-out) backwards;
+  animation-delay: calc(var(--ink-delay, 0ms) + var(--ink-pass) * 350ms);
+}
+.ink-underline.ink-once .ink-mask-path {
+  animation-duration: 650ms;
+}
+.ink-hover .ink-mask-path {
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 220ms var(--ease-out);
+}
+.ink-reveal .ink-mask-path,
+.ink-active .ink-mask-path {
+  stroke-dashoffset: 1;
+}
+.revealed .ink-reveal .ink-mask-path,
+.selected .ink-active .ink-mask-path {
+  animation: ink-write 900ms var(--ease-out) backwards;
+  animation-delay: calc(var(--ink-pass) * 240ms);
+  stroke-dashoffset: 0;
+}
+.ink-action:focus-visible .ink-hover .ink-mask-path {
+  stroke-dashoffset: 0;
+}
+.ink-label {
+  position: relative;
+  display: inline-block;
+}
+.entrance-identity {
+  position: relative;
+  isolation: isolate;
+}
+.ink-entrance {
+  position: absolute;
+  inset: -60px -95px;
+  width: calc(100% + 190px);
+  height: calc(100% + 120px);
+  color: #f5f2e9;
+  opacity: 0.8;
+  z-index: -1;
+  transition: opacity 0.2s;
+}
+.entrance.leaving .ink-entrance {
+  opacity: 0;
+}
+.ink-film-mark {
+  position: absolute;
+  left: -3px;
+  bottom: -2px;
+  width: 30px;
+  height: 9px;
+  color: #f5f2e9;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.film-rail .selected .ink-film-mark {
+  opacity: 1;
+}
+.site .film-rail .selected i {
+  opacity: 0;
+}
+.ink-contact-loop {
+  position: absolute;
+  inset: -20% -12%;
+  width: 124%;
+  height: 140%;
+  opacity: 0.85;
+}
+.footer-contact.ink-action {
+  gap: 40px;
+}
+.ink-contact-arrow {
+  width: 75px;
+  height: 50px;
+  transform: rotate(-8deg);
+}
+.ink-contact-title {
+  position: relative;
+  display: inline-block;
+}
+.ink-contact-title > .ink-mark {
+  position: absolute;
+  left: -4%;
+  bottom: -11px;
+  width: 106%;
+  height: 17px;
+}
+.contact-editorial h2 {
+  line-height: 1.04;
+}
+.about-word.ink-annotated {
+  position: relative;
+  overflow: visible;
+}
+.about-word.ink-annotated > .about-ink-text {
+  animation: ink-word-arrive 700ms var(--ease-out) backwards;
+  animation-delay: var(--word-delay);
+}
+.ink-about-underline {
+  position: absolute;
+  left: -3%;
+  bottom: -5px;
+  width: 101%;
+  height: 12px;
+  color: #f0f2f1;
+}
+.about-portrait > .ink-portrait {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 20%;
+  height: 86%;
+  color: #171716;
+  opacity: 0.85;
+}
+.about-hello.ink-action {
+  gap: 35px;
+}
+.about-hello .ink-contact-arrow {
+  width: clamp(70px, 9vw, 140px);
+  height: clamp(45px, 6vw, 95px);
+  transform: rotate(-8deg);
+}
+@keyframes ink-word-arrive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ink-write {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .ink-action:hover .ink-hover .ink-mask-path {
+    stroke-dashoffset: 0;
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .ink-hover .ink-mask-path {
+    stroke-dashoffset: 0;
+  }
+}
+@media (max-width: 600px) {
+  .ink-contact-loop {
+    inset: -20% -4%;
+    width: 108%;
+  }
+  .ink-entrance {
+    inset: -35px -28px;
+    width: calc(100% + 56px);
+    height: calc(100% + 70px);
+  }
+  .ink-film-mark {
+    width: 22px;
+    height: 7px;
+    left: -1px;
+    bottom: -1px;
+  }
+  .footer-contact.ink-action {
+    gap: 30px;
+  }
+  .ink-contact-arrow {
+    width: 54px;
+    height: 40px;
+  }
+  .ink-contact-title > .ink-mark {
+    height: 12px;
+    bottom: -7px;
+  }
+  .ink-about-underline {
+    height: 9px;
+    bottom: -4px;
+  }
+  .about-hello.ink-action {
+    gap: 28px;
+  }
+  .about-hello .ink-contact-arrow {
+    width: 68px;
+    height: 50px;
+  }
+  .about-portrait > .ink-portrait {
+    right: 3%;
+    width: 22%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-word.ink-annotated > .about-ink-text {
+    animation: none;
+  }
+  .ink-mark .ink-mask-path {
+    animation: none !important;
+    transition: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .ink-hover {
+    opacity: 0.85;
+  }
+}

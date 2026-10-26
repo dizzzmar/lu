@@ -15,3 +15,6 @@ Project media, a suitable portrait, direct contact address and domain remain to 
 
 ## About Reference
 The About surface follows directedbywes.com, as explicitly requested, while the gallery retains its Siena reference. Use Lucía’s confirmed biography and existing brand assets, with a labeled portrait placeholder until a suitable photograph is supplied.
+
+## Organic Gesture Reference
+The user approved adding the organic strokes discussed from the supplied a24.raviklaassens.com screenshot throughout the agreed entrance, gallery, About and contact touchpoints. Preserve the client's original logos, the existing cinema layout and the placeholder-project scope.

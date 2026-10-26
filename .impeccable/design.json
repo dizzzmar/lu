@@ -1,1 +1,70 @@
-{"schemaVersion":2,"title":"Design System: Lucía Clavijo","extensions":{"motion":[{"name":"ease-out","value":"cubic-bezier(.23,1,.32,1)","purpose":"Film lettering, drawer state and control feedback"},{"name":"ease-in-out","value":"cubic-bezier(.77,0,.175,1)","purpose":"Entrance screen crop"},{"name":"scroll-lerp","value":"0.085","purpose":"Interpolated desktop wheel"},{"name":"menu-entry","value":"500ms","purpose":"Clip reveal"},{"name":"menu-exit","value":"240ms","purpose":"Interruptible dismissal"},{"name":"bend-damping","value":"110ms","purpose":"Scroll-velocity deformation settles to rest"}],"breakpoints":[{"name":"mobile","value":"600px"},{"name":"tablet","value":"900px"}]},"narrative":{"northStar":"Siena cinema gallery","overview":"User-pinned dark cinematic gallery with cream ticket controls, restrained uppercase lettering and scroll-driven image curvature.","dos":["Preserve the explicit reference style","Label every film as a placeholder","Respect reduced motion and native touch scrolling"],"donts":["No generic AI slogans","No invented projects or credits","No Siena branding or footage"]}}
+{
+  "schemaVersion": 2,
+  "title": "Design System: Lucía Clavijo",
+  "extensions": {
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.23,1,.32,1)",
+        "purpose": "Film lettering, drawer state and control feedback"
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(.77,0,.175,1)",
+        "purpose": "Entrance screen crop"
+      },
+      {
+        "name": "scroll-lerp",
+        "value": "0.085",
+        "purpose": "Interpolated desktop wheel"
+      },
+      {
+        "name": "menu-entry",
+        "value": "500ms",
+        "purpose": "Clip reveal"
+      },
+      {
+        "name": "menu-exit",
+        "value": "240ms",
+        "purpose": "Interruptible dismissal"
+      },
+      {
+        "name": "bend-damping",
+        "value": "110ms",
+        "purpose": "Scroll-velocity deformation settles to rest"
+      },
+      {
+        "name": "ink-reveal",
+        "value": "650–1000ms with cubic-bezier(.23,1,.32,1)",
+        "purpose": "One-time or state-driven reveal of the user-approved organic contours; 220ms interruptible hover and static touch/reduced-motion alternatives."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "600px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      }
+    ]
+  },
+  "narrative": {
+    "northStar": "Siena cinema gallery",
+    "overview": "User-pinned dark cinematic gallery with cream ticket controls, restrained uppercase lettering and scroll-driven image curvature.",
+    "dos": [
+      "Preserve the explicit reference style",
+      "Label every film as a placeholder",
+      "Respect reduced motion and native touch scrolling"
+    ],
+    "donts": [
+      "No generic AI slogans",
+      "No invented projects or credits",
+      "No Siena branding or footage"
+    ],
+    "keyCharacteristics": [
+      "Sparse pressure-varying organic contours extend the original scissors-and-star identity."
+    ]
+  }
+}

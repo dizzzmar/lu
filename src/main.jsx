@@ -4,6 +4,7 @@ import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import { createFilmCanvas } from "./FilmCanvas";
 import AboutPage from "./AboutPage";
+import InkMark from "./InkMark";
 import "./style.css";
 const base = import.meta.env.BASE_URL;
 const films = [
@@ -401,7 +402,10 @@ function App() {
             <span>MADRID, SPAIN</span>
             <span>AI FILMMAKING · EDITING</span>
           </div>
-          <Wordmark large />
+          <div className="entrance-identity">
+            <Wordmark large />
+            <InkMark variant="orbit" className="ink-entrance" delay={280} />
+          </div>
           <div className="entrance-bottom">
             <span>
               SELECTED WORK
@@ -544,11 +548,22 @@ function App() {
               FOR PROJECTS & COLLABORATIONS
             </span>
             <button
-              className="footer-contact"
+              className="footer-contact ink-action"
               onClick={() => setPanel("contact")}
             >
-              LET’S TALK
-              <Arrow />
+              <span className="ink-label">
+                LET’S TALK
+                <InkMark
+                  variant="orbit"
+                  trigger="hover"
+                  className="ink-contact-loop"
+                />
+              </span>
+              <InkMark
+                variant="arrow"
+                className="ink-contact-arrow"
+                trigger="static"
+              />
             </button>
           </div>
           <div className="footer-name" aria-hidden="true">
@@ -592,6 +607,7 @@ function App() {
           >
             <span>0{i + 1}</span>
             <i />
+            <InkMark className="ink-film-mark" trigger="active" />
           </button>
         ))}
       </aside>
@@ -736,11 +752,14 @@ function App() {
             />
           )}
           {panel === "contact" && (
-            <div className="editorial-panel">
+            <div className="editorial-panel contact-editorial">
               <h2>
                 LET’S
                 <br />
-                TALK.
+                <span className="ink-contact-title">
+                  TALK.
+                  <InkMark variant="underline" delay={350} />
+                </span>
               </h2>
               <div>
                 <p className="body-copy">
