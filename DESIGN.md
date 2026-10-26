@@ -62,3 +62,6 @@ Reduced motion uses native scrolling and DOM stills, removes image distortion an
 - Don't replace the client identity with Siena's logo or borrow its film footage.
 
 Brand assets are documented in public/brand/README.md. The header and entrance use the original white scissors mark; the cream menu uses the same silhouette rendered black. The standalone star supplies footer signatures, scheme-aware favicons, home-screen icons and a branded share image. Preserve the original shapes; do not redraw them.
+
+### About surface — Directed by Wes reference
+The user selected Directed by Wes specifically for About. This local surface uses a full-viewport near-black overlay, a heavily blurred version of the current gallery still, a persistent left About label and client-name frame, and a right column beginning at roughly 41% of desktop width. Regular Manrope introduction text is 2.4vw (34.5px at 1440px) with 1.25 line height; small client/contact rows, a split location line, portrait area and scrolling bio follow. Mobile collapses to one column. Word masks, scoped smooth scrolling and once-only biography reveals retain reduced-motion alternatives. This composition does not replace the Siena gallery design. A proper portrait is pending; the current portrait area is labeled as a branded placeholder.

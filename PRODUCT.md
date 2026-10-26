@@ -11,4 +11,7 @@ User-provided biography and experience screenshot; Behance profile inspected for
 ## Brand Commitments
 Siena.film is the explicit layout and interaction reference. Latest instruction supersedes the light direction: keep Siena’s original dark cinema style and smooth motion for now. Avoid AI clichés. Placeholder projects only. Client-supplied Archivo.zip contains the scissors-and-star logo and standalone black/white stars. Original PNGs are retained under public/brand/originals; use these actual assets for branding and icons.
 ## Open Decisions
-Project media, direct contact address and domain remain to be supplied. Primary visitors are inferred to be brand and agency collaborators.
+Project media, a suitable portrait, direct contact address and domain remain to be supplied. Primary visitors are inferred to be brand and agency collaborators.
+
+## About Reference
+The About surface follows directedbywes.com, as explicitly requested, while the gallery retains its Siena reference. Use Lucía’s confirmed biography and existing brand assets, with a labeled portrait placeholder until a suitable photograph is supplied.

@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import { createFilmCanvas } from "./FilmCanvas";
+import AboutPage from "./AboutPage";
 import "./style.css";
 const base = import.meta.env.BASE_URL;
 const films = [
@@ -84,13 +85,19 @@ function TicketButton({ children, onClick, className = "", ...props }) {
 function App() {
   const [reduced, setReduced] = useState(reducedQuery().matches);
   const [entered, setEntered] = useState(
-    () => sessionStorage.getItem("lucia-entered-v2") === "true",
+    () =>
+      location.hash === "#about" ||
+      sessionStorage.getItem("lucia-entered-v2") === "true",
   );
   const [intro, setIntro] = useState(
-    () => sessionStorage.getItem("lucia-entered-v2") !== "true",
+    () =>
+      location.hash !== "#about" &&
+      sessionStorage.getItem("lucia-entered-v2") !== "true",
   );
   const [active, setActive] = useState(0),
-    [panel, setPanel] = useState(null),
+    [panel, setPanel] = useState(() =>
+      location.hash === "#about" ? "about" : null,
+    ),
     [canvasReady, setCanvasReady] = useState(false),
     [dragging, setDragging] = useState(false);
   const canvas = useRef(null),
@@ -111,6 +118,25 @@ function App() {
     return () => q.removeEventListener("change", change);
   }, []);
   useEffect(() => () => clearTimeout(introTimer.current), []);
+  useEffect(() => {
+    const next =
+      location.pathname + location.search + (panel === "about" ? "#about" : "");
+    if (panel === "about" || location.hash === "#about")
+      history.replaceState(history.state, "", next);
+    const onHashChange = () => {
+      if (location.hash === "#about") {
+        setEntered(true);
+        setIntro(false);
+        setPanel("about");
+      } else if (panel === "about") {
+        dialog.current?.close();
+        setPanel(null);
+      }
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [panel]);
+
   useEffect(() => {
     const sections = [...document.querySelectorAll(".film")];
     const surfaces = sections.map((e) => e.querySelector(".film-surface"));
@@ -212,6 +238,7 @@ function App() {
   useEffect(() => {
     if (!panel) return;
     lastFocus.current = document.activeElement;
+    dialog.current.scrollTop = 0;
     if (!dialog.current.open) dialog.current.showModal();
     closingAnimation.current?.cancel();
     const el = dialog.current;
@@ -585,7 +612,9 @@ function App() {
         data-lenis-prevent
         ref={dialog}
         className={
-          "overlay " + (panel === "menu" || panel === "index" ? "wide" : "")
+          "overlay " +
+          (panel === "menu" || panel === "index" ? "wide" : "") +
+          (panel === "about" ? " about-overlay" : "")
         }
         onCancel={(e) => {
           e.preventDefault();
@@ -700,43 +729,11 @@ function App() {
             </>
           )}
           {panel === "about" && (
-            <div className="editorial-panel">
-              <h2>
-                ABOUT
-                <br />
-                LUCÍA.
-              </h2>
-              <div>
-                <p className="body-copy">
-                  I’m Lucía Clavijo, an AI filmmaker and video editor crafting
-                  bold, high-impact stories for global brands and agencies.
-                </p>
-                <p className="body-copy">
-                  With seven years of editing experience, I bring creative
-                  instincts and technical precision to every project.
-                </p>
-                <dl className="about-facts">
-                  <div>
-                    <dt>BASED IN</dt>
-                    <dd>Madrid, Spain</dd>
-                  </div>
-                  <div>
-                    <dt>FOCUS</dt>
-                    <dd>AI filmmaking · Video editing</dd>
-                  </div>
-                  <div>
-                    <dt>TEACHING</dt>
-                    <dd>Visual storytelling & generative AI at LABASAD</dd>
-                  </div>
-                </dl>
-                <TicketButton
-                  className="dark-ticket"
-                  onClick={() => setPanel("contact")}
-                >
-                  Get in touch
-                </TicketButton>
-              </div>
-            </div>
+            <AboutPage
+              reduced={reduced}
+              currentImage={films[active].image}
+              onContact={() => setPanel("contact")}
+            />
           )}
           {panel === "contact" && (
             <div className="editorial-panel">
